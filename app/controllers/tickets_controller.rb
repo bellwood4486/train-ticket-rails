@@ -49,8 +49,6 @@ class TicketsController < ApplicationController
   end
 
   def abort_exited_ticket
-    if @ticket.exited?
-      redirect_to root_path, notice: '降車済みの切符です。'
-    end
+    redirect_to root_path, notice: '降車済みの切符です。' if @ticket.exited?
   end
 end
